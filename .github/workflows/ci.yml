@@ -33,13 +33,17 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-
+      
       - name: SonarQube Scan
-        uses: SonarSource/sonarqube-scan-action@v6
-        env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-          insecure: "true"
-        with:
-          args: >
-            -Dsonar.projectKey=calculator-app
+        run: |
+          pysonar --sonar-host-url=http://localhost:9000 --sonar-token=sqp_4fdf574a5ded13270488a1f10e0390cde66879b9 --sonar-project-key=calculator-app
+
+      # - name: SonarQube Scan
+      #   uses: SonarSource/sonarqube-scan-action@v6
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      #     insecure: "true"
+      #   with:
+      #     args: >
+      #       -Dsonar.projectKey=calculator-app
