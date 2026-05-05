@@ -3,8 +3,7 @@ name: Security Repo Scan
 on:
   push:
     branches:
-      - main
-      - 'feature/**'
+      - none
   pull_request:
     branches:
       - main
