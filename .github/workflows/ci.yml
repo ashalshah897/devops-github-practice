@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - 'feature/**'
   pull_request:
     branches:
       - main
@@ -34,16 +33,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      - name: SonarQube Scan
-        run: |
-          pip install pysonar && pysonar --sonar-host-url=http://localhost:9000 --sonar-token=sqp_4fdf574a5ded13270488a1f10e0390cde66879b9 --sonar-project-key=calculator-app
-
       # - name: SonarQube Scan
-      #   uses: SonarSource/sonarqube-scan-action@v6
-      #   env:
-      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      #     SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
-      #     insecure: "true"
-      #   with:
-      #     args: >
-      #       -Dsonar.projectKey=calculator-app
+      #   run: |
+      #     pip install pysonar && pysonar --sonar-host-url=http://localhost:9000 --sonar-token=sqp_4fdf574a5ded13270488a1f10e0390cde66879b9 --sonar-project-key=calculator-app
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v6
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          insecure: "true"
+        with:
+          args: >
+            -Dsonar.projectKey=calculator-app
