@@ -41,4 +41,4 @@ jobs:
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         with:
           args: >
-            -Dsonar.projectKey=My_Calculator
+            -Dsonar.projectKey=calculator-app
