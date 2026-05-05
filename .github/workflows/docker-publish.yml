@@ -3,7 +3,7 @@ name: Docker Publish
 on:
   push:
     branches:
-      - main
+      - main-s
   workflow_dispatch:
 
 jobs:
