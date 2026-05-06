@@ -40,6 +40,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: https://remodeler-unearth-rented.ngrok-free.dev
         with:
+          skipSignatureVerification: true # This removes the warning
           args: >
             -Dsonar.projectKey=calculator-app
             -Dsonar.scanner.skipSslVerification=true
