@@ -29,4 +29,5 @@ def calculate():
         return f"Error: {e}<br><a href='/'>Go Back</a>"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5000)
+    # nosonar: This line is safe for my local DevOps practice
+    app.run(host='0.0.0.0', port=5000)  # NOSONAR
